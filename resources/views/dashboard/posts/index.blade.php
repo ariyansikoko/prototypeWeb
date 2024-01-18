@@ -5,8 +5,9 @@
         <h1 class="h2">All Posts</h1>
     </div>
     @if (session()->has('success'))
-        <div class="alert alert-success" role="alert">
+        <div class="alert alert-success col-lg-8 alert-dismissible fade show" role="alert">
             {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
     <div class="table-responsive small col-lg-10">
@@ -32,12 +33,16 @@
                             <a href="/dashboard/posts/{{ $post->slug }}" class="btn btn-primary">
                                 <i class="bi bi-eye"></i>
                             </a>
-                            <a href="/dashboard/posts/" class="btn btn-warning">
+                            <a href="/dashboard/posts/{{ $post->slug }}/edit" class="btn btn-warning">
                                 <i class="bi bi-pencil-square"></i>
                             </a>
-                            <a href="/dashboard/posts/" class="btn btn-danger">
-                                <i class="bi bi-trash"></i>
-                            </a>
+                            <form action="/dashboard/posts/{{ $post->slug }}" method="POST" class="d-inline">
+                                @method('delete')
+                                @csrf
+                                <button class="btn btn-danger" onclick="return confirm('Are you sure?')">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach
