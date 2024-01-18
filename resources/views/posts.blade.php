@@ -38,7 +38,7 @@
                         {{ $posts[0]->created_at->diffForHumans() }}
                     </small>
                 </p>
-                <p class="card-text">{{ $posts[0]->excerpt }}</p>
+                <p class="card-text">{{ strip_tags($posts[0]->excerpt) }}</p>
                 <a href="/posts/{{ $posts[0]->slug }}" class="text-decoration-none btn btn-primary">Read more</a>
             </div>
         </div>
@@ -64,7 +64,7 @@
                                         {{ $post->created_at->diffForHumans() }}
                                     </small>
                                 </p>
-                                <p class="card-text">{{ $post->excerpt }}</p>
+                                <p class="card-text">{{ str_replace('&nbsp', ' ', strip_tags($post->excerpt)) }}</p>
                                 <a href="/posts/{{ $post->slug }}" class="btn btn-primary">Read more</a>
                             </div>
                         </div>
