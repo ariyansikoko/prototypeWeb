@@ -6,13 +6,13 @@
     </div>
 
     <div class="col-lg-8">
-        <form method="POST" action="/dashboard/posts/{{ $post->slug }}" class="mb-5">
+        <form method="POST" action="/dashboard/posts/{{ $post->slug }}" class="mb-5" enctype="multipart/form-data">
             @method('put')
             @csrf
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
-                <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title"
-                    required autofocus value="{{ old('title', $post->title) }}">
+                <input type="text" class="form-control @error('title') is-invalid @enderror" id="title"
+                    name="title" required autofocus value="{{ old('title', $post->title) }}">
                 @error('title')
                     <div class="text-danger">
                         <small>{{ $message }}</small>
@@ -40,6 +40,24 @@
                         @endif
                     @endforeach
                 </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="image" class="form-label">Upload Image</label>
+                @if ($post->image)
+                    <img src="{{ asset('storage/' . $post->image) }}" alt=""
+                        class="img-preview img-fluid mb-3 col-sm-5 d-block">
+                @else
+                    <img src="" alt="" class="img-preview img-fluid mb-3 col-sm-5">
+                @endif
+
+                <input class="form-control @error('image') is-invalid @enderror" type="file" id="image"
+                    name="image" onchange="previewImage()">
+                @error('image')
+                    <div class="text-danger">
+                        <small>{{ $message }}</small>
+                    </div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="body" class="form-label">Body</label>

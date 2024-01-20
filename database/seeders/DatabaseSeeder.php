@@ -15,12 +15,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory(3)->create();
+        User::create([
+            'name' => 'Ariyan Satya Sikoko',
+            'username' => 'ariyansikoko',
+            'email' => 'ariyansikoko@gmail.com',
+            'password' => bcrypt('asdasd'),
+        ]);
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        User::factory(3)->create();
 
         Category::create([
             'name' => 'Web Programming',
@@ -45,33 +47,6 @@ class DatabaseSeeder extends Seeder
         //     'body' => 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia error ullam, obcaecati quibusdam corporis voluptates facere odio alias eius laudantium necessitatibus commodi, sit tenetur quisquam nostrum accusantium numquam totam dolor voluptatem neque libero incidunt quaerat unde? Cum odit ad molestiae qui. Numquam, consequatur sequi. Laborum perspiciatis nostrum nesciunt ducimus doloremque, est reprehenderit provident explicabo quos tempore quae amet minus quam eum! Sit explicabo neque tempora dolorem animi, asperiores hic amet consequatur sapiente minima eligendi enim facilis modi nam! Porro totam amet soluta veniam ea tempore eligendi ad, maxime consequatur velit minima ut ratione nemo, numquam doloremque saepe nihil quo aut?',
         //     'category_id' => 1,
         //     'user_id' => 1,
-        // ]);
-
-        // Post::create([
-        //     'title' => 'Judul Kedua',
-        //     'slug' => 'judul-kedua',
-        //     'excerpt' => 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia error ullam, obcaecati quibusdam corporis voluptates facere odio alias eius laudantium necessitatibus commodi',
-        //     'body' => 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia error ullam, obcaecati quibusdam corporis voluptates facere odio alias eius laudantium necessitatibus commodi, sit tenetur quisquam nostrum accusantium numquam totam dolor voluptatem neque libero incidunt quaerat unde? Cum odit ad molestiae qui. Numquam, consequatur sequi. Laborum perspiciatis nostrum nesciunt ducimus doloremque, est reprehenderit provident explicabo quos tempore quae amet minus quam eum! Sit explicabo neque tempora dolorem animi, asperiores hic amet consequatur sapiente minima eligendi enim facilis modi nam! Porro totam amet soluta veniam ea tempore eligendi ad, maxime consequatur velit minima ut ratione nemo, numquam doloremque saepe nihil quo aut?',
-        //     'category_id' => 1,
-        //     'user_id' => 2,
-        // ]);
-
-        // Post::create([
-        //     'title' => 'Judul Ketiga',
-        //     'slug' => 'judul-ketiga',
-        //     'excerpt' => 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia error ullam, obcaecati quibusdam corporis voluptates facere odio alias eius laudantium necessitatibus commodi',
-        //     'body' => 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia error ullam, obcaecati quibusdam corporis voluptates facere odio alias eius laudantium necessitatibus commodi, sit tenetur quisquam nostrum accusantium numquam totam dolor voluptatem neque libero incidunt quaerat unde? Cum odit ad molestiae qui. Numquam, consequatur sequi. Laborum perspiciatis nostrum nesciunt ducimus doloremque, est reprehenderit provident explicabo quos tempore quae amet minus quam eum! Sit explicabo neque tempora dolorem animi, asperiores hic amet consequatur sapiente minima eligendi enim facilis modi nam! Porro totam amet soluta veniam ea tempore eligendi ad, maxime consequatur velit minima ut ratione nemo, numquam doloremque saepe nihil quo aut?',
-        //     'category_id' => 2,
-        //     'user_id' => 1,
-        // ]);
-
-        // Post::create([
-        //     'title' => 'Judul Keempat',
-        //     'slug' => 'judul-keempat',
-        //     'excerpt' => 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia error ullam, obcaecati quibusdam corporis voluptates facere odio alias eius laudantium necessitatibus commodi',
-        //     'body' => 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia error ullam, obcaecati quibusdam corporis voluptates facere odio alias eius laudantium necessitatibus commodi, sit tenetur quisquam nostrum accusantium numquam totam dolor voluptatem neque libero incidunt quaerat unde? Cum odit ad molestiae qui. Numquam, consequatur sequi. Laborum perspiciatis nostrum nesciunt ducimus doloremque, est reprehenderit provident explicabo quos tempore quae amet minus quam eum! Sit explicabo neque tempora dolorem animi, asperiores hic amet consequatur sapiente minima eligendi enim facilis modi nam! Porro totam amet soluta veniam ea tempore eligendi ad, maxime consequatur velit minima ut ratione nemo, numquam doloremque saepe nihil quo aut?',
-        //     'category_id' => 2,
-        //     'user_id' => 2,
         // ]);
     }
 }

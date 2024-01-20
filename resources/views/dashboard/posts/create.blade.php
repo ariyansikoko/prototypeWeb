@@ -6,12 +6,12 @@
     </div>
 
     <div class="col-lg-8">
-        <form method="POST" action="/dashboard/posts" class="mb-5">
+        <form method="POST" action="/dashboard/posts" class="mb-5" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
-                <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title"
-                    required autofocus value="{{ old('title') }}">
+                <input type="text" class="form-control @error('title') is-invalid @enderror" id="title"
+                    name="title" required autofocus value="{{ old('title') }}">
                 @error('title')
                     <div class="text-danger">
                         <small>{{ $message }}</small>
@@ -39,6 +39,17 @@
                         @endif
                     @endforeach
                 </select>
+            </div>
+            <div class="mb-3">
+                <label for="image" class="form-label">Upload Image (max 1 MB)</label>
+                <img src="" alt="" class="img-preview img-fluid mb-3 col-sm-5">
+                <input class="form-control @error('image') is-invalid @enderror" type="file" id="image"
+                    name="image" onchange="previewImage()">
+                @error('image')
+                    <div class="text-danger">
+                        <small>{{ $message }}</small>
+                    </div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="body" class="form-label">Body</label>
