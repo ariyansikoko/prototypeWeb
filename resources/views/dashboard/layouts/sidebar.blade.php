@@ -15,16 +15,33 @@
                 <li class="nav-item">
                     <a class="nav-link d-flex align-items-center gap-2 {{ Request::is('dashboard') ? 'active' : '' }}"
                         aria-current="page" href="/dashboard">
-                        <i class="bi bi-house-fill"></i> Dashboard
+                        <i class="bi bi-house-fill"></i>Dashboard
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link d-flex align-items-center gap-2 {{ Request::is('dashboard/posts') ? 'active' : '' }}"
                         href="/dashboard/posts">
-                        <i class="bi bi-card-text"></i> Posts
+                        <i class="bi bi-card-text"></i>Posts
                     </a>
                 </li>
             </ul>
+
+            @can('admin')
+                <hr class="my-3">
+                <h6
+                    class="sidebar-heading d-flex justify-content-between align-items-center px-3 mb-1 text-body-secondary text-uppercase">
+                    <span>Administrator</span>
+                </h6>
+                <ul class="nav flex-column mb-auto">
+                    <li class="nav-item">
+                        <a class="nav-link d-flex align-items-center gap-2 {{ Request::is('dashboard/categories') ? 'active' : '' }}"
+                            href="/dashboard/categories">
+                            <i class="bi bi-grid"></i>Categories
+                        </a>
+                    </li>
+                </ul>
+            @endcan
+
 
             <hr class="my-3">
             <h6
@@ -35,9 +52,8 @@
                 <li class="nav-item">
                     <form action="/logout" method="POST">
                         @csrf
-                        <button type="submit" class="nav-link d-flex align-items-center gap-2"><i
-                                class="bi bi-box-arrow-right"></i>
-                            Logout
+                        <button type="submit" class="nav-link d-flex align-items-center gap-2">
+                            <i class="bi bi-box-arrow-right"></i>Logout
                         </button>
                     </form>
                 </li>
